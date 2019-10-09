@@ -6,15 +6,26 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 那日的个人地盘</title>
+  <title>阿里云服务器部署——mysql数据库数据迁移 | 那日的个人地盘</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="那日的个人地盘">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="开发项目时，我们都会在本地环境进行项目的编写，当我们将项目部署到服务器上时，可能存在一个问题就是服务器上的数据库没有数据，那么我们需要将本地数据库的数据迁移到服务器中的数据库中。 首先，将本地环境中的数据库数据进行备份。 此处使用的是：SQLyog Ultimate 64工具。 在数据库右键，选择备份/导出，然后选择备份数据库，转储到SQL…  选择保存路径，点击导出即可。 点击新建连接，连接">
+<meta name="keywords" content="阿里云服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="阿里云服务器部署——mysql数据库数据迁移">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/index.html">
 <meta property="og:site_name" content="那日的个人地盘">
+<meta property="og:description" content="开发项目时，我们都会在本地环境进行项目的编写，当我们将项目部署到服务器上时，可能存在一个问题就是服务器上的数据库没有数据，那么我们需要将本地数据库的数据迁移到服务器中的数据库中。 首先，将本地环境中的数据库数据进行备份。 此处使用的是：SQLyog Ultimate 64工具。 在数据库右键，选择备份/导出，然后选择备份数据库，转储到SQL…  选择保存路径，点击导出即可。 点击新建连接，连接">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B0%E5%BB%BA%E8%BF%9E%E6%8E%A5.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E9%98%BF%E9%87%8C%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%BC%E5%85%A5%E5%A4%87%E4%BB%BD.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5CNavicat.png">
+<meta property="og:updated_time" content="2019-10-09T19:02:33.027Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="那日的个人地盘">
+<meta name="twitter:title" content="阿里云服务器部署——mysql数据库数据迁移">
+<meta name="twitter:description" content="开发项目时，我们都会在本地环境进行项目的编写，当我们将项目部署到服务器上时，可能存在一个问题就是服务器上的数据库没有数据，那么我们需要将本地数据库的数据迁移到服务器中的数据库中。 首先，将本地环境中的数据库数据进行备份。 此处使用的是：SQLyog Ultimate 64工具。 在数据库右键，选择备份/导出，然后选择备份数据库，转储到SQL…  选择保存路径，点击导出即可。 点击新建连接，连接">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD.png">
   
     <link rel="alternative" href="/atom.xml" title="那日的个人地盘" type="application/atom+xml">
   
@@ -156,36 +167,56 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-阿里云服务器部署——mysql数据库数据迁移" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      阿里云服务器部署——mysql数据库数据迁移
+    </h1>
+  
+
+        
+        <a href="/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/" class="archive-article-date">
+  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<p>开发项目时，我们都会在本地环境进行项目的编写，当我们将项目部署到服务器上时，可能存在一个问题就是服务器上的数据库没有数据，那么我们需要将本地数据库的数据迁移到服务器中的数据库中。</p>
+<p>首先，将本地环境中的数据库数据进行备份。</p>
+<p>此处使用的是：SQLyog Ultimate 64工具。</p>
+<p>在数据库右键，选择备份/导出，然后选择备份数据库，转储到SQL…</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD.png" alt></p>
+<p>选择保存路径，点击导出即可。</p>
+<p>点击新建连接，连接服务器的数据库。</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B0%E5%BB%BA%E8%BF%9E%E6%8E%A5.png" alt></p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93.png" alt></p>
+<p>输入阿里云服务器的IP，输入数据库密码，进行连接，需要在阿里云开放3306端口。</p>
+<p>右键新连接的连接，选择 执行SQL脚本</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E9%98%BF%E9%87%8C%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%BC%E5%85%A5%E5%A4%87%E4%BB%BD.png" alt></p>
+<p>点击执行即可。</p>
+<p>就可以看到我们的本地环境的数据已经全部导入成功！</p>
+<p>再用Navicat for MySQL软件写一下：</p>
+<p>右键本地的数据库，点击转储SQL文件，选择储存路径即可。</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5CNavicat.png" alt></p>
+<p>点击左上角连接，连接阿里云数据库，输入阿里云服务器的IP，输入数据库密码，进行连接，需要在阿里云开放3306端口。</p>
+<p>在新建的连接中，创建要导入的数据库的库，右键阿里云数据库，点击  运行SQL文件，选择备份的文件，点击开始即可。</p>
+<p>完工！</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/关于阿里云服务器微乎其微的事但是很重要！！！/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/关于阿里云服务器微乎其微的事但是很重要！！！/">阿里云数据库开放远程连接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,364 +228,114 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/JWT/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/09/03/阿里云服务器Redis连接拒绝/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          连接阿里云的Redis服务器连接拒绝  Errno111
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2018/09/03/开启电脑的cpu虚化技术 /" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">cpu虚化技术</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/JWT/">JWT</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">用户认证</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/Tornado高并发处理方法实例代码/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/Tornado高并发处理方法实例代码/">Tornado 高并发处理办法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Tornado</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/Web性能压力测试之Webbench使用详解/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/Web性能压力测试之Webbench使用详解/">阿里云服务器Centos7.3安装Mysql数据库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">阿里云服务器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/celery使用/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/celery使用/">celery使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">异步</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/uwsgi操作/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/uwsgi操作/">linux 安装uwsgi</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/win使用docker搭建fastDFS/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/win使用docker搭建fastDFS/">win使用docker搭建fastDFS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">win</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/123-1/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/123-1/">你看见了吗？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/阿里云服务器docker搭建fastDfs/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/阿里云服务器docker搭建fastDfs/">阿里云服务器docker搭建fastDfs</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">阿里云服务器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/阿里云服务器Centos7.3安装Mysql数据库/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/阿里云服务器Centos7.3安装Mysql数据库/">Web性能压力测试之Webbench使用详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -578,8 +359,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

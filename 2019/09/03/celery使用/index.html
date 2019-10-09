@@ -6,15 +6,20 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 那日的个人地盘</title>
+  <title>celery使用 | 那日的个人地盘</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="那日的个人地盘">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="1.1 安装相关包">
+<meta name="keywords" content="异步">
+<meta property="og:type" content="article">
+<meta property="og:title" content="celery使用">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/celery使用/index.html">
 <meta property="og:site_name" content="那日的个人地盘">
+<meta property="og:description" content="1.1 安装相关包">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-10-09T18:51:37.496Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="那日的个人地盘">
+<meta name="twitter:title" content="celery使用">
+<meta name="twitter:description" content="1.1 安装相关包">
   
     <link rel="alternative" href="/atom.xml" title="那日的个人地盘" type="application/atom+xml">
   
@@ -156,188 +161,120 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-celery使用" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      celery使用
+    </h1>
+  
+
+        
+        <a href="/2019/09/03/celery使用/" class="archive-article-date">
+  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="1-1-安装相关包"><a href="#1-1-安装相关包" class="headerlink" title="1.1 安装相关包"></a>1.1 安装相关包</h1><a id="more"></a>
+
+<blockquote>
+<p>安装virtualenv环境</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 1、安装virtualenv</span></span><br><span class="line">yum install python-virtualenv</span><br><span class="line">　　　　</span><br><span class="line"><span class="comment"># 2、创建python虚拟环境</span></span><br><span class="line">virtualenv env           <span class="comment"># 执行后，在本地会生成一个与虚拟环境同名的文件夹</span></span><br><span class="line">　　　　 </span><br><span class="line"><span class="comment"># 3、启动虚拟环境　　　　</span></span><br><span class="line">source bin/activate         <span class="comment"># 启动虚拟环境</span></span><br><span class="line">deactivate                  <span class="comment"># 退出虚拟环境</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.1.1 安装相关软件包</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">pip3 install Django==<span class="number">2.0</span><span class="number">.4</span></span><br><span class="line">pip3 install celery==<span class="number">4.3</span><span class="number">.0</span></span><br><span class="line">pip3 install redis==<span class="number">3.2</span><span class="number">.1</span></span><br><span class="line">pip3 install  django-celery==<span class="number">3.1</span><span class="number">.17</span></span><br><span class="line">pip3 install ipython==<span class="number">7.6</span><span class="number">.1</span> </span><br><span class="line"></span><br><span class="line">find ./ -type f | xargs sed -i <span class="string">'s/\r$//g'</span>  <span class="comment"># 批量将当前文件夹下所有文件装换成unix格式</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.1.2 celery管理</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">celery multi start w1 w2 -A celery_pro -l info     <span class="comment">#一次性启动w1,w2两个worker</span></span><br><span class="line">celery -A celery_pro status                        <span class="comment">#查看当前有哪些worker在运行</span></span><br><span class="line">celery multi stop w1 w2 -A celery_pro              <span class="comment">#停止w1,w2两个worker</span></span><br><span class="line"></span><br><span class="line">celery  multi start celery_test -A celery_test -l debug --autoscale=<span class="number">50</span>,<span class="number">5</span>        <span class="comment"># celery并发数：最多50个，最少5个</span></span><br><span class="line">ps auxww|grep <span class="string">"celery worker"</span>|grep -v grep|awk <span class="string">'&#123;print $2&#125;'</span>|xargs kill <span class="number">-9</span>       <span class="comment"># 关闭所有celery进程</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>1.1.3 django_celery_beat管理</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">celery -A celery_test beat -l info -S django                   <span class="comment">#启动心跳任务</span></span><br><span class="line">ps -ef | grep -E <span class="string">"celery -A celery_test beat"</span> | grep -v grep| awk <span class="string">'&#123;print $2&#125;'</span> | xargs kill -TERM &amp;&gt; /dev/null  <span class="comment"># 杀死心跳所有进程</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="1-2-celery与Django异步任务"><a href="#1-2-celery与Django异步任务" class="headerlink" title="1.2 celery与Django异步任务"></a>1.2 celery与Django异步任务</h1><blockquote>
+<p>1.在Django中使用celery介绍（celery无法再windows下运行）</p>
+</blockquote>
+<ul>
+<li>1）在Django中使用celery时，celery文件必须以tasks.py</li>
+<li>2）Django会自动到每个APP中找tasks.py文件</li>
+</ul>
+<blockquote>
+<p>2.创建一个Django项目celery_test，和app01</p>
+</blockquote>
+<blockquote>
+<p>3.在与项目同名的目录下创建celery.py </p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只要是想在自己的脚本中访问Django的数据库等文件就必须配置Django的环境变量</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'celery_test.settings'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># app名字</span></span><br><span class="line">app = Celery(<span class="string">'celery_test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置celery</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span>:</span></span><br><span class="line">    BROKER_URL = <span class="string">'redis://192.168.56.11:6379'</span></span><br><span class="line">    CELERY_RESULT_BACKEND = <span class="string">'redis://192.168.56.11:6379'</span></span><br><span class="line"></span><br><span class="line">app.config_from_object(Config)</span><br><span class="line"><span class="comment"># 到各个APP里自动发现tasks.py文件</span></span><br><span class="line">app.autodiscover_tasks()</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4.在与项目同名的目录下的 <strong>init</strong>.py 文件中添加下面内容</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"></span><br><span class="line"><span class="comment"># 告诉Django在启动时别忘了检测我的celery文件</span></span><br><span class="line"><span class="keyword">from</span> .celery <span class="keyword">import</span> app <span class="keyword">as</span> celery_ap</span><br><span class="line">__all__ = [<span class="string">'celery_app'</span>]</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>5.创建app01/tasks.py文件</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding:utf8 -*-</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import, unicode_literals</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> shared_task</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line"><span class="comment"># 这里不再使用@app.task,而是用@shared_task，是指定可以在其他APP中也可以调用这个任务</span></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">add</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    print(<span class="string">'########## running add #####################'</span>)</span><br><span class="line">    <span class="keyword">return</span> x + y</span><br><span class="line"></span><br><span class="line"><span class="meta">@shared_task</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">minus</span><span class="params">(x,y)</span>:</span></span><br><span class="line">    time.sleep(<span class="number">30</span>)</span><br><span class="line">    print(<span class="string">'########## running minus #####################'</span>)</span><br><span class="line">    <span class="keyword">return</span> x - y</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>6.将celery_test这个Django项目拷贝到centos7.3的django_test文件夹中</p>
+</blockquote>
+<blockquote>
+<p>7.保证启动了redis-server</p>
+</blockquote>
+<blockquote>
+<p>8.启动一个celery的worker</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">celery -A celery_test worker -l info  <span class="comment"># 启动一个celery worker</span></span><br><span class="line">celery  multi start celery_test -A celery_test -l debug --autoscale=<span class="number">50</span>,<span class="number">5</span>    <span class="comment"># celery并发数：最多50个，最少5个</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>9.测试celery</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">./manage.py shell</span><br><span class="line"><span class="keyword">import</span> tasks</span><br><span class="line">t1 = tasks.minus.delay(<span class="number">5</span>,<span class="number">3</span>)</span><br><span class="line">t2 = tasks.add.delay(<span class="number">3</span>,<span class="number">4</span>)</span><br><span class="line">t1.get()</span><br><span class="line">t2.get()</span><br></pre></td></tr></table></figure>
+
+<h1 id="1-3-在django中使用计划任务功能"><a href="#1-3-在django中使用计划任务功能" class="headerlink" title="1.3 在django中使用计划任务功能"></a>1.3 在django中使用计划任务功能</h1><blockquote>
+<p>1.在Django中使用celery的定时任务需要安装django-celery-beat</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip3 install django-celery-beat</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>2.在Django的settings中注册django_celery_beat</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">INSTALLED_APPS = (</span><br><span class="line">    ...,</span><br><span class="line">    <span class="string">'django_celery_beat'</span>,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>3.执行创建表命令</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">python3 manage.py makemigrations</span><br><span class="line">python3 manage.py migrate</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>4.在与项目同名的目录下的celery.py中添加定时任务</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">from</span> __future__ <span class="keyword">import</span> absolute_import</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> celery <span class="keyword">import</span> Celery</span><br><span class="line"><span class="keyword">from</span> celery.schedules <span class="keyword">import</span> crontab</span><br><span class="line"><span class="keyword">from</span> datetime <span class="keyword">import</span> timedelta</span><br><span class="line"><span class="keyword">from</span> kombu <span class="keyword">import</span> Queue</span><br><span class="line"></span><br><span class="line"><span class="comment"># 只要是想在自己的脚本中访问Django的数据库等文件就必须配置Django的环境变量</span></span><br><span class="line">os.environ.setdefault(<span class="string">'DJANGO_SETTINGS_MODULE'</span>, <span class="string">'celery_test.settings'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># app名字</span></span><br><span class="line">app = Celery(<span class="string">'celery_test'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 配置celery</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Config</span>:</span></span><br><span class="line">    BROKER_URL = <span class="string">'redis://192.168.56.11:6379'</span>  <span class="comment"># broker</span></span><br><span class="line">    CELERY_RESULT_BACKEND = <span class="string">'redis://192.168.56.11:6379'</span>  <span class="comment"># backend</span></span><br><span class="line">    CELERY_ACCEPT_CONTENT = [<span class="string">'application/json'</span>]  <span class="comment"># celery接收的内容各式</span></span><br><span class="line">    CELERY_TASK_SERIALIZER = <span class="string">'json'</span>  <span class="comment"># 任务的序列化方式</span></span><br><span class="line">    CELERY_RESULT_SERIALIZER = <span class="string">'json'</span>  <span class="comment"># 任务执行结果的序列化方式</span></span><br><span class="line">    CELERY_TIMEZONE = <span class="string">'Asia/Shanghai'</span>  <span class="comment"># 时区设置，计划任务需要，推荐 Asia/Shanghai</span></span><br><span class="line">    ENABLE_UTC = <span class="literal">False</span>  <span class="comment"># 不使用UTC时区</span></span><br><span class="line">    CELERY_TASK_RESULT_EXPIRES = <span class="number">60</span> * <span class="number">60</span>  <span class="comment"># celery任务执行结果的超时时间</span></span><br><span class="line">    CELERY_ANNOTATIONS = &#123;<span class="string">'*'</span>: &#123;<span class="string">'rate_limit'</span>: <span class="string">'500/s'</span>&#125;&#125;</span><br><span class="line">    <span class="comment"># CELERYD_PREFETCH_MULTIPLIER = 10  # 每次取任务的数量</span></span><br><span class="line">    CELERYD_MAX_TASKS_PER_CHILD = <span class="number">16</span>  <span class="comment"># 每个worker执行了多少任务就会死掉，防止内存泄漏</span></span><br><span class="line"></span><br><span class="line">app.config_from_object(Config)</span><br><span class="line">app.autodiscover_tasks()</span><br><span class="line"></span><br><span class="line"><span class="comment">#crontab config</span></span><br><span class="line">app.conf.update(</span><br><span class="line">    CELERYBEAT_SCHEDULE = &#123;</span><br><span class="line">        <span class="comment"># 每隔3s执行一次add函数</span></span><br><span class="line">        <span class="string">'every-3-min-add'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'app01.tasks.add'</span>,</span><br><span class="line">            <span class="string">'schedule'</span>: timedelta(seconds=<span class="number">3</span>)</span><br><span class="line">        &#125;,</span><br><span class="line">        <span class="comment"># 每天下午15:420执行</span></span><br><span class="line">        <span class="string">'add-every-day-morning@14:50'</span>: &#123;</span><br><span class="line">            <span class="string">'task'</span>: <span class="string">'app01.tasks.minus'</span>,</span><br><span class="line">            <span class="string">'schedule'</span>: crontab(hour=<span class="number">15</span>, minute=<span class="number">20</span>, day_of_week=<span class="string">'*/1'</span>),</span><br><span class="line">        &#125;,</span><br><span class="line">    &#125;,</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">Queue(<span class="string">'transient'</span>, routing_key=<span class="string">'transient'</span>,delivery_mode=<span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>5.在/django_test/celery_test/目录下执行下面命令</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">celery -A celery_test worker -l info   <span class="comment">#启动一个worker</span></span><br><span class="line">celery -A celery_test beat -l info -S django  <span class="comment">#启动心跳任务</span></span><br><span class="line"></span><br><span class="line">说明：运行上面命令后就可以看到在运行celery -A celery_test worker -l info         </span><br><span class="line">的窗口中每<span class="number">3</span>秒钟执行一次app01.tasks.add</span><br></pre></td></tr></table></figure>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/关于阿里云服务器微乎其微的事但是很重要！！！/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/关于阿里云服务器微乎其微的事但是很重要！！！/">阿里云数据库开放远程连接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">阿里云服务器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/JWT/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/JWT/">JWT</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">用户认证</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/Tornado高并发处理方法实例代码/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/Tornado高并发处理方法实例代码/">Tornado 高并发处理办法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Tornado</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/Web性能压力测试之Webbench使用详解/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/Web性能压力测试之Webbench使用详解/">阿里云服务器Centos7.3安装Mysql数据库</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">阿里云服务器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/celery使用/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/celery使用/">celery使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -349,212 +286,114 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/celery使用/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/uwsgi操作/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/09/03/Web性能压力测试之Webbench使用详解/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          阿里云服务器Centos7.3安装Mysql数据库
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/03/uwsgi操作/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">linux 安装uwsgi</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/uwsgi操作/">linux 安装uwsgi</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/win使用docker搭建fastDFS/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/win使用docker搭建fastDFS/">win使用docker搭建fastDFS</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">win</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/123-1/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/123-1/">你看见了吗？</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/阿里云服务器docker搭建fastDfs/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/阿里云服务器docker搭建fastDfs/">阿里云服务器docker搭建fastDfs</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">阿里云服务器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/阿里云服务器Centos7.3安装Mysql数据库/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/阿里云服务器Centos7.3安装Mysql数据库/">Web性能压力测试之Webbench使用详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -578,8 +417,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

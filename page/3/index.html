@@ -6,11 +6,11 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 那日的个人地盘</title>
+  <title>那日的个人地盘</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta property="og:type" content="website">
 <meta property="og:title" content="那日的个人地盘">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+<meta property="og:url" content="http://yoursite.com/page/3/index.html">
 <meta property="og:site_name" content="那日的个人地盘">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
@@ -158,34 +158,51 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-阿里云数据库开放远程连接" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 itemprop="name">
+      <a class="article-title" href="/2019/09/03/阿里云数据库开放远程连接/">阿里云数据库开放远程连接</a>
+    </h1>
+  
+
+        
+        <a href="/2019/09/03/阿里云数据库开放远程连接/" class="archive-article-date">
+  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
     
-    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#查看服务状态</span></span><br><span class="line">systemctl status mysqld</span><br><span class="line"><span class="comment"># 如果没有启动，输入代码 启动服务</span></span><br><span class="line">systemctl start mysqld</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 设置远程登录</span></span><br><span class="line"> grant all on *.* to root@<span class="string">'%'</span> identified by <span class="string">'123456'</span> <span class="keyword">with</span> grant option;</span><br></pre></td></tr></table></figure>
+
+<p><img src="//yoursite.com/2019/09/03/阿里云数据库开放远程连接/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5Cmysql%E8%BF%9C%E7%A8%8B%E8%BF%9E%E6%8E%A5.png" alt></p>
+<p><strong>更改完以后立刻执行</strong>：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p>mysql数据库访问授权操作的时候报了一个</p>
+<p>ERROR 1819 (HY000): Your password does not satisfy the current policy requirements</p>
+<p>说明mysql数据库设置的过于简单，不符合mysql的机制，这个其实与validate_password_policy和validate_password_length两个参数决定，在本地登陆数据库然后修改这两个参数就可以完美的解决问题。 </p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">set <span class="keyword">global</span> validate_password_policy=<span class="number">0</span>;</span><br><span class="line">set <span class="keyword">global</span> validate_password_length=<span class="number">6</span>;</span><br><span class="line">systemctl  restart  mysqld.service</span><br></pre></td></tr></table></figure>
+
+<p>修改完重新启动mysql服务即可!</p>
+<p><strong>完工！</strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/关于阿里云服务器微乎其微的事但是很重要！！！/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/关于阿里云服务器微乎其微的事但是很重要！！！/">阿里云数据库开放远程连接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,109 +214,97 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/03/阿里云数据库开放远程连接/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/JWT/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-阿里云服务器Redis连接拒绝" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/JWT/">JWT</a>
+      <a class="article-title" href="/2019/09/03/阿里云服务器Redis连接拒绝/">连接阿里云的Redis服务器连接拒绝  Errno111</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">用户认证</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/Tornado高并发处理方法实例代码/" class="archive-article-date">
+        
+        <a href="/2019/09/03/阿里云服务器Redis连接拒绝/" class="archive-article-date">
   	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/Tornado高并发处理方法实例代码/">Tornado 高并发处理办法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Tornado</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/Web性能压力测试之Webbench使用详解/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/Web性能压力测试之Webbench使用详解/">阿里云服务器Centos7.3安装Mysql数据库</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
+<p>先上图一张：</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%9C%8D%E5%8A%A1%E5%99%A8redis%E8%BF%9E%E6%8E%A5%E6%8B%92%E7%BB%9D.png" alt></p>
+<p>一般连接拒绝有三种原因：</p>
+<ul>
+<li>一、Redis服务未开启</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看redis服务信息</span></span><br><span class="line">redis-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启redis服务</span></span><br><span class="line">systemctl start redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭redis服务</span></span><br><span class="line">systemctl stop redis</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>二、配置文件进行配置</li>
+</ul>
+<p>我的配置文件在/etc/redis.conf </p>
+<p>查看是否将默认只能本地访问redis改为所有IP均可以访问</p>
+<p>bind 127.0.0.1 改为 bind 0.0.0.0</p>
+<p>查看端口号是否为6379</p>
+<ul>
+<li>三、关闭服务器防火墙或者开放指定端口</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看防火墙状态</span></span><br><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5Ccentos%E9%98%B2%E7%81%AB%E5%A2%99.png" alt></p>
+<p>可以看见   <strong>Active:inactive(dead)</strong>   说明防火墙已关闭</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开防火墙命令</span></span><br><span class="line">sudo systemctl start firewalld</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动防火墙</span></span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">systemctl status firewalld </span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止防火墙</span></span><br><span class="line">systemctl disable firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁用防火请</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 开放指定端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=<span class="number">80</span>/tcp --permanent   //开放端口</span><br><span class="line">firewall-cmd --reload                                      //重新载入，使其生效</span><br><span class="line"><span class="comment"># 关闭指定端口</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=<span class="number">80</span>/tcp --permanent    //关闭端口</span><br><span class="line">firewall-cmd --reload                                          //重新载入，使其生效</span><br><span class="line"><span class="comment"># 查看端口状态</span></span><br><span class="line">firewall-cmd --zone=public --query-port=<span class="number">80</span>/tcp	               //查看端口状态</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -311,185 +316,90 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/03/阿里云服务器Redis连接拒绝/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/celery使用/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-阿里云服务器部署——mysql数据库数据迁移" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/celery使用/">celery使用</a>
+      <a class="article-title" href="/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/">阿里云服务器部署——mysql数据库数据迁移</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">异步</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/uwsgi操作/" class="archive-article-date">
+        
+        <a href="/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/" class="archive-article-date">
   	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/uwsgi操作/">linux 安装uwsgi</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
+        
+      </header>
     
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/win使用docker搭建fastDFS/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/win使用docker搭建fastDFS/">win使用docker搭建fastDFS</a>
-    </h1>
-  
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">win</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<p>开发项目时，我们都会在本地环境进行项目的编写，当我们将项目部署到服务器上时，可能存在一个问题就是服务器上的数据库没有数据，那么我们需要将本地数据库的数据迁移到服务器中的数据库中。</p>
+<p>首先，将本地环境中的数据库数据进行备份。</p>
+<p>此处使用的是：SQLyog Ultimate 64工具。</p>
+<p>在数据库右键，选择备份/导出，然后选择备份数据库，转储到SQL…</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E5%A4%87%E4%BB%BD.png" alt></p>
+<p>选择保存路径，点击导出即可。</p>
+<p>点击新建连接，连接服务器的数据库。</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E6%96%B0%E5%BB%BA%E8%BF%9E%E6%8E%A5.png" alt></p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%95%B0%E6%8D%AE%E5%BA%93%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93.png" alt></p>
+<p>输入阿里云服务器的IP，输入数据库密码，进行连接，需要在阿里云开放3306端口。</p>
+<p>右键新连接的连接，选择 执行SQL脚本</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E9%98%BF%E9%87%8C%E4%BA%91%E6%95%B0%E6%8D%AE%E5%BA%93%E5%AF%BC%E5%85%A5%E5%A4%87%E4%BB%BD.png" alt></p>
+<p>点击执行即可。</p>
+<p>就可以看到我们的本地环境的数据已经全部导入成功！</p>
+<p>再用Navicat for MySQL软件写一下：</p>
+<p>右键本地的数据库，点击转储SQL文件，选择储存路径即可。</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5CNavicat.png" alt></p>
+<p>点击左上角连接，连接阿里云数据库，输入阿里云服务器的IP，输入数据库密码，进行连接，需要在阿里云开放3306端口。</p>
+<p>在新建的连接中，创建要导入的数据库的库，右键阿里云数据库，点击  运行SQL文件，选择备份的文件，点击开始即可。</p>
+<p>完工！</p>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/123-1/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/123-1/">你看见了吗？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/阿里云服务器docker搭建fastDfs/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/阿里云服务器docker搭建fastDfs/">阿里云服务器docker搭建fastDfs</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -501,59 +411,123 @@
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/阿里云服务器Centos7.3安装Mysql数据库/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-开启电脑的cpu虚化技术 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
     <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/阿里云服务器Centos7.3安装Mysql数据库/">Web性能压力测试之Webbench使用详解</a>
+      <a class="article-title" href="/2018/09/03/开启电脑的cpu虚化技术 /">cpu虚化技术</a>
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/09/03/开启电脑的cpu虚化技术 /" class="archive-article-date">
+  	<time datetime="2018-09-03T05:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-09-03</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="开启电脑的cpu虚化技术"><a href="#开启电脑的cpu虚化技术" class="headerlink" title="开启电脑的cpu虚化技术"></a>开启电脑的cpu虚化技术</h2><p>首先查看自己是否开启：</p>
+<ul>
+<li>任务管理器</li>
+<li>性能  CPU</li>
+<li>右下角   虚拟化：已启用/未启用</li>
+</ul>
+<p>点击连接：<a href="https://www.kafan.cn/A/pv0om2qzvd.html" target="_blank" rel="noopener">安装之前请开启电脑的cpu虚化技术</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">技术</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/09/03/开启电脑的cpu虚化技术 /">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
-  
-  
-    </div></section>
-  
 
-    
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+  
     <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
+      <a class="extend prev" rel="prev" href="/page/2/">&laquo; Prev</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span>
     </nav>
   
 
@@ -577,9 +551,9 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: false,
+		isHome: true,
 		isPost: false,
-		isArchive: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,

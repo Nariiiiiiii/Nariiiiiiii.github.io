@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives: 2019 | 那日的个人地盘</title>
+  <title>连接阿里云的Redis服务器连接拒绝  Errno111 | 那日的个人地盘</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="那日的个人地盘">
-<meta property="og:url" content="http://yoursite.com/archives/2019/index.html">
+  <meta name="description" content="先上图一张：  一般连接拒绝有三种原因：  一、Redis服务未开启  12345678# 查看redis服务信息redis-server# 开启redis服务systemctl start redis# 关闭redis服务systemctl stop redis   二、配置文件进行配置  我的配置文件在/etc/redis.conf  查看是否将默认只能本地访问redis改为所有IP均可以">
+<meta name="keywords" content="阿里云服务器">
+<meta property="og:type" content="article">
+<meta property="og:title" content="连接阿里云的Redis服务器连接拒绝  Errno111">
+<meta property="og:url" content="http://yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/index.html">
 <meta property="og:site_name" content="那日的个人地盘">
+<meta property="og:description" content="先上图一张：  一般连接拒绝有三种原因：  一、Redis服务未开启  12345678# 查看redis服务信息redis-server# 开启redis服务systemctl start redis# 关闭redis服务systemctl stop redis   二、配置文件进行配置  我的配置文件在/etc/redis.conf  查看是否将默认只能本地访问redis改为所有IP均可以">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%9C%8D%E5%8A%A1%E5%99%A8redis%E8%BF%9E%E6%8E%A5%E6%8B%92%E7%BB%9D.png">
+<meta property="og:image" content="http://yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5Ccentos%E9%98%B2%E7%81%AB%E5%A2%99.png">
+<meta property="og:updated_time" content="2019-10-09T19:01:42.316Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="那日的个人地盘">
+<meta name="twitter:title" content="连接阿里云的Redis服务器连接拒绝  Errno111">
+<meta name="twitter:description" content="先上图一张：  一般连接拒绝有三种原因：  一、Redis服务未开启  12345678# 查看redis服务信息redis-server# 开启redis服务systemctl start redis# 关闭redis服务systemctl stop redis   二、配置文件进行配置  我的配置文件在/etc/redis.conf  查看是否将默认只能本地访问redis改为所有IP均可以">
+<meta name="twitter:image" content="http://yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%9C%8D%E5%8A%A1%E5%99%A8redis%E8%BF%9E%E6%8E%A5%E6%8B%92%E7%BB%9D.png">
   
     <link rel="alternative" href="/atom.xml" title="那日的个人地盘" type="application/atom+xml">
   
@@ -156,36 +164,63 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-阿里云服务器Redis连接拒绝" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      连接阿里云的Redis服务器连接拒绝  Errno111
+    </h1>
+  
+
+        
+        <a href="/2019/09/03/阿里云服务器Redis连接拒绝/" class="archive-article-date">
+  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
+</a>
+        
+      </header>
     
+    <div class="article-entry" itemprop="articleBody">
+      
+        <a id="more"></a>
+
+<p>先上图一张：</p>
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5C%E6%9C%8D%E5%8A%A1%E5%99%A8redis%E8%BF%9E%E6%8E%A5%E6%8B%92%E7%BB%9D.png" alt></p>
+<p>一般连接拒绝有三种原因：</p>
+<ul>
+<li>一、Redis服务未开启</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看redis服务信息</span></span><br><span class="line">redis-server</span><br><span class="line"></span><br><span class="line"><span class="comment"># 开启redis服务</span></span><br><span class="line">systemctl start redis</span><br><span class="line"></span><br><span class="line"><span class="comment"># 关闭redis服务</span></span><br><span class="line">systemctl stop redis</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>二、配置文件进行配置</li>
+</ul>
+<p>我的配置文件在/etc/redis.conf </p>
+<p>查看是否将默认只能本地访问redis改为所有IP均可以访问</p>
+<p>bind 127.0.0.1 改为 bind 0.0.0.0</p>
+<p>查看端口号是否为6379</p>
+<ul>
+<li>三、关闭服务器防火墙或者开放指定端口</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看防火墙状态</span></span><br><span class="line">systemctl status firewalld</span><br></pre></td></tr></table></figure>
+
+<p><img src="//yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/C:%5CUsers%5CASUS%5CDesktop%5Cmd%E7%94%A8%E5%9B%BE%5Ccentos%E9%98%B2%E7%81%AB%E5%A2%99.png" alt></p>
+<p>可以看见   <strong>Active:inactive(dead)</strong>   说明防火墙已关闭</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 打开防火墙命令</span></span><br><span class="line">sudo systemctl start firewalld</span><br></pre></td></tr></table></figure>
+
+<p>总结：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 启动防火墙</span></span><br><span class="line">systemctl start firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看状态</span></span><br><span class="line">systemctl status firewalld </span><br><span class="line"></span><br><span class="line"><span class="comment"># 停止防火墙</span></span><br><span class="line">systemctl disable firewalld</span><br><span class="line"></span><br><span class="line"><span class="comment"># 禁用防火请</span></span><br><span class="line">systemctl stop firewalld</span><br><span class="line">    </span><br><span class="line"><span class="comment"># 开放指定端口</span></span><br><span class="line">firewall-cmd --zone=public --add-port=<span class="number">80</span>/tcp --permanent   //开放端口</span><br><span class="line">firewall-cmd --reload                                      //重新载入，使其生效</span><br><span class="line"><span class="comment"># 关闭指定端口</span></span><br><span class="line">firewall-cmd --zone=public --remove-port=<span class="number">80</span>/tcp --permanent    //关闭端口</span><br><span class="line">firewall-cmd --reload                                          //重新载入，使其生效</span><br><span class="line"><span class="comment"># 查看端口状态</span></span><br><span class="line">firewall-cmd --zone=public --query-port=<span class="number">80</span>/tcp	               //查看端口状态</span><br></pre></td></tr></table></figure>
+
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/关于阿里云服务器微乎其微的事但是很重要！！！/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/关于阿里云服务器微乎其微的事但是很重要！！！/">阿里云数据库开放远程连接</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -197,364 +232,114 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/09/03/阿里云服务器Redis连接拒绝/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/JWT/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2019/09/03/阿里云数据库开放远程连接/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          阿里云数据库开放远程连接
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2019/09/03/阿里云服务器部署——mysql数据库数据迁移/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">阿里云服务器部署——mysql数据库数据迁移</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/JWT/">JWT</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">用户认证</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/Tornado高并发处理方法实例代码/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/Tornado高并发处理方法实例代码/">Tornado 高并发处理办法</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Tornado</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/Web性能压力测试之Webbench使用详解/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/Web性能压力测试之Webbench使用详解/">阿里云服务器Centos7.3安装Mysql数据库</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">阿里云服务器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/celery使用/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/celery使用/">celery使用</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">异步</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/uwsgi操作/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/uwsgi操作/">linux 安装uwsgi</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/win使用docker搭建fastDFS/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/win使用docker搭建fastDFS/">win使用docker搭建fastDFS</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">win</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/123-1/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/123-1/">你看见了吗？</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/阿里云服务器docker搭建fastDfs/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/阿里云服务器docker搭建fastDfs/">阿里云服务器docker搭建fastDfs</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">阿里云服务器</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/09/03/阿里云服务器Centos7.3安装Mysql数据库/" class="archive-article-date">
-  	<time datetime="2019-09-03T13:13:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-09-03</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/09/03/阿里云服务器Centos7.3安装Mysql数据库/">Web性能压力测试之Webbench使用详解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">web</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/archives/2019/page/2/">2</a><a class="extend next" rel="next" href="/archives/2019/page/2/">Next &raquo;</a>
-    </nav>
   
 
 
@@ -578,8 +363,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
